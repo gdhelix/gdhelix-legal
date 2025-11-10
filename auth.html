@@ -1,0 +1,58 @@
+{
+  "actions": [
+    {
+      "name": "post_tiktok_video",
+      "description": "Poste une vidéo sur TikTok via l'API OAuth",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "video_url": {"type": "string", "description": "URL publique de la vidéo MP4"},
+          "caption": {"type": "string", "description": "Légende avec hashtags"}
+        },
+        "required": ["video_url", "caption"]
+      },
+      "authentication": {
+        "type": "oauth",
+        "authorization_url": "https://www.tiktok.com/v2/auth/authorize/",
+        "token_url": "https://open.tiktok.com/v2/oauth/token/",
+        "scopes": "video.upload,user.info.basic",
+        "client_id": "
+awvwi7pki4k1vqts",
+        "client_secret": "
+gb8FcdSgJtEZBY47wNVOv8XECln2oaUv"
+      }
+    },
+    {
+      "name": "generate_avatar_stability",
+      "description": "Génère avatar Victoria avec Stability AI",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "prompt": {"type": "string", "description": "Prompt pour l'avatar steampunk"},
+          "style": {"type": "string", "description": "Style: victorian, cyberpunk, kawaii"}
+        },
+        "required": ["prompt"]
+      },
+      "authentication": {
+        "type": "bearer",
+        "bearer_token": "sk-il1L2uGCJ8eBmJADDhZ79vJRsPipt2C1X7FnKukcdvjRxEjB"
+      }
+    },
+    {
+      "name": "fetch_fiscal_data_api",
+      "description": "Récupère données fiscales depuis Legifrance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {"type": "string", "description": "Recherche fiscale (ex: 'SCPI forêt')"}
+        },
+        "required": ["query"]
+      },
+      "authentication": {
+        "type": "custom",
+        "header_name": "X-API-Key",
+        "api_key": "1aed3e1f-8ba9-4577-a183-bf82f970b7eb"
+      }
+    }
+  ]
+}
